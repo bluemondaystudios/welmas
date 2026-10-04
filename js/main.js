@@ -157,7 +157,7 @@
         <div class="thumb">${b.img ? `<img src="${esc(b.img)}" alt="">` : `<img class="mark" src="assets/img/logo-ink.png" alt="">`}</div>
         <div>
           <h4>${esc(b.name)}</h4>
-          <div class="meta">${[b.option, b.details].filter(Boolean).map(esc).join("<br>")}</div>
+          <div class="meta">${[b.option, b.details].filter(Boolean).map(esc).join("\n")}</div>
           <div class="qty" role="group" aria-label="Quantity">
             <button type="button" data-qty="${i}" data-d="-1" aria-label="Fewer">−</button>
             <output>${b.qty}</output>
@@ -210,6 +210,8 @@
   let lastFocus = null;
   function openBasket() {
     lastFocus = document.activeElement;
+    clearTimeout(toastTimer);
+    $(".toast").classList.remove("show");
     document.body.classList.add("drawer-open");
     $("#basket").setAttribute("aria-hidden", "false");
     setTimeout(() => { const c = $("#basket [data-close-basket]"); if (c) c.focus(); }, 50);

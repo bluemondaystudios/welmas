@@ -470,3 +470,4 @@ body.drawer-open .drawer-backdrop { opacity: 1; pointer-events: auto; }
 html, body { overflow-x: clip; }
 .card-media.placeholder { aspect-ratio: 16 / 7; }
 .card-media.placeholder img { width: auto; height: 70%; }
+.line-item .meta { white-space: pre-line; }
