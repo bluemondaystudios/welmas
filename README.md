@@ -1,7 +1,7 @@
-# FreshlyBaked by Welmas — website
+# FreshlyBaked by Welmas website
 
 A fast, static website for **FreshlyBaked by Welmas**, a premium bakery in Ngwaritsi, Limpopo (est. 2018).
-No build step and no server — just HTML, CSS and a little JavaScript.
+No build step and no server, just HTML, CSS and a little JavaScript.
 
 ## Pages
 | Page | What's on it |
@@ -17,7 +17,7 @@ Customers add items to an **order basket** (it stays in their browser between pa
 already written out. There's an email fallback too. No payments or customer data are stored by the site.
 
 ## Updating prices and products
-Everything lives in **`js/catalog.js`** — prices, products, cake sizes, premium flavours, contact details.
+Everything lives in **`js/catalog.js`**: prices, products, cake sizes, premium flavours, contact details.
 Change it there and every page, the basket and the WhatsApp message update together.
 
 - `price: null` shows "Price on request"
@@ -25,16 +25,15 @@ Change it there and every page, the basket and the WhatsApp message update toget
 - `featured: true` puts the item in the home-page favourites
 - add a photo to `assets/img/` and set `img: "assets/img/your-photo.jpg"`
 
-## Publishing — www.freshlybakedbywelmas.co.za
-The repo already contains a `CNAME` file for `www.freshlybakedbywelmas.co.za` and a `.nojekyll` file.
+## Publishing (freshlybakedbywelmas.co.za)
+The repo contains a `CNAME` file for `freshlybakedbywelmas.co.za` and a `.nojekyll` file.
 
-1. GitHub → **Settings → Pages** → Source: *Deploy from a branch* → pick the branch, folder `/ (root)` → Save.
-2. At the domain registrar (DNS for `freshlybakedbywelmas.co.za`):
-   - `CNAME` record: `www` → `bluemondaystudios.github.io`
-   - `A` records for the bare domain `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-     (so `freshlybakedbywelmas.co.za` redirects to `www`)
-3. Back in Settings → Pages, once the DNS check passes, tick **Enforce HTTPS**.
+1. GitHub, **Settings > Pages**: Source *Deploy from a branch*, pick the branch, folder `/ (root)`, Save.
+2. DNS at the registrar:
+   - `A` records for `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - `CNAME` record: `www` to `bluemondaystudios.github.io` (GitHub then redirects www to the bare domain)
+3. Once the DNS check passes in Settings > Pages, tick **Enforce HTTPS**.
 
 ## Design notes
-Cream and plum with the violet-to-orchid glow from Welmas's own price lists; Cormorant Garamond
+Linen, oat and cocoa with a caramel accent; Cormorant Garamond
 headlines, Pinyon Script accents and Jost body text (self-hosted in `assets/fonts`, SIL Open Font License).

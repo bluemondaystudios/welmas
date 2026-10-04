@@ -1,5 +1,5 @@
 /*
- * FreshlyBaked by Welmas — the whole catalogue lives here.
+ * FreshlyBaked by Welmas: the whole catalogue lives here.
  *
  * To change a price, add a product or hide one, edit this file only:
  * every page (home, menu, celebrations, the order basket and the WhatsApp
@@ -33,11 +33,11 @@ window.WELMAS = {
 
   // Build-your-own cake pricing (from the official price list)
   cakeSizes: [
-    { id: "6-1", label: '6" · one flavour',    servings: "6–10 servings",  price: 500,  sticker: 550 },
-    { id: "6-2", label: '6" · two flavours',   servings: "6–12 servings",  price: 650,  sticker: 700 },
-    { id: "6-3", label: '6" · three flavours', servings: "8–15 servings",  price: 850,  sticker: 900 },
-    { id: "7-2", label: '7" · two flavours',   servings: "15–20 servings", price: 950,  sticker: 1000 },
-    { id: "7-3", label: '7" · three flavours', servings: "20–24 servings", price: 1050, sticker: 1100 },
+    { id: "6-1", label: '6" · one flavour',    servings: "6 to 10 servings",  price: 500,  sticker: 550 },
+    { id: "6-2", label: '6" · two flavours',   servings: "6 to 12 servings",  price: 650,  sticker: 700 },
+    { id: "6-3", label: '6" · three flavours', servings: "8 to 15 servings",  price: 850,  sticker: 900 },
+    { id: "7-2", label: '7" · two flavours',   servings: "15 to 20 servings", price: 950,  sticker: 1000 },
+    { id: "7-3", label: '7" · three flavours', servings: "20 to 24 servings", price: 1050, sticker: 1100 },
   ],
   // These carry an extra charge, confirmed on the quote
   premiumFlavours: ["Red Velvet", "Chocolate", "Carrot", "Marula", "Blueberry", "Lemon Poppyseed", "Black Forest", "Biscoff"],
@@ -86,6 +86,6 @@ window.WELMAS = {
     { id: "kiddies-setup",  cat: "setups", name: "Kiddies Party Setup", img: "assets/img/kiddies-candy-cart.jpg", price: 3500, from: true, featured: true,
       note: "Tables, chairs, draping, candy cart, balloons and themed styling." },
     { id: "romantic-setup", cat: "setups", name: "Romantic Setup", price: null,
-      note: "Proposals, anniversaries and date nights — flowers, candles and something sweet." },
+      note: "Proposals, anniversaries and date nights. Flowers, candles and something sweet." },
   ],
 };

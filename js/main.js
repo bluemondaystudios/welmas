@@ -1,4 +1,4 @@
-/* FreshlyBaked by Welmas — shared site behaviour */
+/* FreshlyBaked by Welmas: shared site behaviour */
 (function () {
   "use strict";
 
@@ -42,7 +42,7 @@
       <div class="ribbon">Orders open 24/7 on WhatsApp · <a href="${waLink("Hi Welmas! I'd like to place an order.")}" target="_blank" rel="noopener">${B.phoneDisplay}</a></div>
       <header class="site-header">
         <div class="wrap nav">
-          <a class="brand" href="index.html" aria-label="${esc(B.name)} — home">
+          <a class="brand" href="index.html" aria-label="${esc(B.name)}, home">
             <img src="assets/img/logo-ink.png" alt="" width="52" height="52">
             <span class="brand-name"><span class="bn-long">FreshlyBaked <em>by</em> </span>Welmas<small>Premium bakery · Est. 2018</small></span>
           </a>
@@ -66,8 +66,8 @@
         <div class="wrap">
           <div class="footer-grid">
             <div class="footer-brand">
-              <img src="assets/img/logo-cream.png" alt="FreshlyBaked by Welmas — Premium bakery, est. 2018, made with love" width="150" height="150">
-              <p>A premium home bakery in Ngwaritsi, Limpopo. Cakes, biscuits, meals and full celebration setups — made with love since 2018.</p>
+              <img src="assets/img/logo-cream.png" alt="FreshlyBaked by Welmas. Premium bakery, est. 2018, made with love" width="150" height="150">
+              <p>A premium home bakery in Ngwaritsi, Limpopo. Cakes, biscuits, meals and full celebration setups, made with love since 2018.</p>
               <div class="socials">
                 <a href="${B.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${icon.instagram}</a>
                 <a href="${B.facebook}" target="_blank" rel="noopener" aria-label="Facebook">${icon.facebook}</a>
@@ -147,7 +147,7 @@
     if (!body) return;
 
     if (!basket.length) {
-      body.innerHTML = `<div class="empty"><img src="assets/img/logo-ink.png" alt=""><p>Your order is empty — let's fix that.</p><a class="btn btn-primary btn-sm" href="menu.html">Browse the menu</a></div>`;
+      body.innerHTML = `<div class="empty"><img src="assets/img/logo-ink.png" alt=""><p>Your order is empty. Let's fix that.</p><a class="btn btn-primary btn-sm" href="menu.html">Browse the menu</a></div>`;
       foot.innerHTML = `<a class="btn btn-ghost" href="${waLink("Hi Welmas! I'd like to ask about an order.")}" target="_blank" rel="noopener">${icon.whatsapp} Just chat to us</a>`;
       return;
     }
@@ -181,7 +181,7 @@
         <label>Needed on<input class="text-input" id="order-date" type="date" value="${esc(prevDate)}"></label>
       </div>
       <label>Notes<input class="text-input" id="order-notes" placeholder="Collection or delivery, theme, colours…" value="${esc(prevNotes)}"></label>
-      <a class="btn btn-glow" data-send-order href="#" target="_blank" rel="noopener">${icon.whatsapp} Send order on WhatsApp</a>
+      <a class="btn btn-latte" data-send-order href="#" target="_blank" rel="noopener">${icon.whatsapp} Send order on WhatsApp</a>
       <a class="btn btn-ghost btn-sm" data-email-order href="#">Or send by email</a>`;
   }
 
@@ -191,11 +191,11 @@
     const notes = ($("#order-notes") || {}).value || "";
     const { total, quoted } = basketTotals();
     const lines = basket.map((b) => {
-      const price = typeof b.price === "number" ? ` — ${b.from ? "from " : ""}${rand(b.price * b.qty)}` : " — price on request";
+      const price = typeof b.price === "number" ? `: ${b.from ? "from " : ""}${rand(b.price * b.qty)}` : ": price on request";
       return `• ${b.qty} × ${b.name}${b.option ? " (" + b.option + ")" : ""}${price}${b.details ? "\n   " + b.details.replace(/\n/g, "\n   ") : ""}`;
     });
     return [
-      `Hi Welmas! 🎂 I'd like to place an order${name ? " — this is " + name : ""}.`,
+      `Hi Welmas! I'd like to place an order${name ? ". This is " + name : ""}.`,
       "",
       ...lines,
       "",
@@ -244,7 +244,7 @@
       ? `<div class="card-media"><img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy">${cat ? `<span class="tag">${esc(cat.name)}</span>` : ""}</div>`
       : `<div class="card-media placeholder"><img src="assets/img/logo-ink.png" alt="" loading="lazy">${cat ? `<span class="tag">${esc(cat.name)}</span>` : ""}</div>`;
     const select = p.options
-      ? `<select class="opt-select" data-opt aria-label="Choose a size for ${esc(p.name)}">${p.options.map((o, i) => `<option value="${i}">${esc(o.label)} — ${rand(o.price)}</option>`).join("")}</select>`
+      ? `<select class="opt-select" data-opt aria-label="Choose a size for ${esc(p.name)}">${p.options.map((o, i) => `<option value="${i}">${esc(o.label)} · ${rand(o.price)}</option>`).join("")}</select>`
       : "";
     return `
       <article class="card" data-product="${esc(p.id)}">
@@ -314,10 +314,10 @@
         ["Size", s.size.label],
         ["Serves", s.size.servings],
         ["Finish", s.deco === "sticker" ? "Sticker / character" : "Standard decoration"],
-        ["Premium flavour", s.premium.length ? s.premium.join(", ") + " · quoted" : "—"],
-        ["Extras", s.extras.length ? s.extras.join(", ") + " · quoted" : "—"],
+        ["Premium flavour", s.premium.length ? s.premium.join(", ") + " · quoted" : "None"],
+        ["Extras", s.extras.length ? s.extras.join(", ") + " · quoted" : "None"],
       ].map(([k, v]) => `<li><span>${k}</span><span>${esc(v)}</span></li>`).join("");
-      $("[data-builder-wa]").href = waLink(`Hi Welmas! 🎂 I'd like a quote for a custom cake:\n\n${s.size.label} — from ${rand(s.price)}\n${detailText(s)}\n\nSent from freshlybakedbywelmas.co.za`);
+      $("[data-builder-wa]").href = waLink(`Hi Welmas! I'd like a quote for a custom cake:\n\n${s.size.label}, from ${rand(s.price)}\n${detailText(s)}\n\nSent from freshlybakedbywelmas.co.za`);
     }
 
     form.addEventListener("input", update);
@@ -391,7 +391,7 @@
       else if (t.matches("[data-send-order]")) { t.href = waLink(orderMessage()); }
       else if (t.matches("[data-email-order]")) {
         e.preventDefault();
-        location.href = `mailto:${B.email}?subject=${encodeURIComponent("Order request — website")}&body=${encodeURIComponent(orderMessage())}`;
+        location.href = `mailto:${B.email}?subject=${encodeURIComponent("Order request from the website")}&body=${encodeURIComponent(orderMessage())}`;
       }
       else if (t.matches("[data-rail]")) {
         const rail = $(t.dataset.rail);
