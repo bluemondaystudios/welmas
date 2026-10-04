@@ -203,7 +203,7 @@
       date ? `Needed on: ${new Date(date + "T00:00").toLocaleDateString("en-ZA", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}` : "",
       notes ? `Notes: ${notes}` : "",
       "",
-      "Sent from freshlybakedbywelmas website",
+      "Sent from freshlybakedbywelmas.co.za",
     ].filter((l, i, a) => l !== "" || a[i - 1] !== "").join("\n");
   }
 
@@ -317,7 +317,7 @@
         ["Premium flavour", s.premium.length ? s.premium.join(", ") + " · quoted" : "—"],
         ["Extras", s.extras.length ? s.extras.join(", ") + " · quoted" : "—"],
       ].map(([k, v]) => `<li><span>${k}</span><span>${esc(v)}</span></li>`).join("");
-      $("[data-builder-wa]").href = waLink(`Hi Welmas! 🎂 I'd like a quote for a custom cake:\n\n${s.size.label} — from ${rand(s.price)}\n${detailText(s)}\n\nSent from freshlybakedbywelmas website`);
+      $("[data-builder-wa]").href = waLink(`Hi Welmas! 🎂 I'd like a quote for a custom cake:\n\n${s.size.label} — from ${rand(s.price)}\n${detailText(s)}\n\nSent from freshlybakedbywelmas.co.za`);
     }
 
     form.addEventListener("input", update);
@@ -440,7 +440,7 @@
         const lines = $$("[name]", form)
           .filter((f) => f.value.trim() && (f.type !== "radio" || f.checked))
           .map((f) => `${f.dataset.label || f.name}: ${f.value.trim()}`);
-        window.open(waLink(`${form.dataset.waForm}\n\n${lines.join("\n")}\n\nSent from freshlybakedbywelmas website`), "_blank", "noopener");
+        window.open(waLink(`${form.dataset.waForm}\n\n${lines.join("\n")}\n\nSent from freshlybakedbywelmas.co.za`), "_blank", "noopener");
       });
     });
   }

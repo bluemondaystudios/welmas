@@ -25,9 +25,15 @@ Change it there and every page, the basket and the WhatsApp message update toget
 - `featured: true` puts the item in the home-page favourites
 - add a photo to `assets/img/` and set `img: "assets/img/your-photo.jpg"`
 
-## Publishing
-Turn on **GitHub Pages** (Settings → Pages → Deploy from branch → root) or drag the folder onto
-Netlify / Cloudflare Pages. A custom domain such as `freshlybakedbywelmas.co.za` can be pointed at either.
+## Publishing — www.freshlybakedbywelmas.co.za
+The repo already contains a `CNAME` file for `www.freshlybakedbywelmas.co.za` and a `.nojekyll` file.
+
+1. GitHub → **Settings → Pages** → Source: *Deploy from a branch* → pick the branch, folder `/ (root)` → Save.
+2. At the domain registrar (DNS for `freshlybakedbywelmas.co.za`):
+   - `CNAME` record: `www` → `bluemondaystudios.github.io`
+   - `A` records for the bare domain `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+     (so `freshlybakedbywelmas.co.za` redirects to `www`)
+3. Back in Settings → Pages, once the DNS check passes, tick **Enforce HTTPS**.
 
 ## Design notes
 Cream and plum with the violet-to-orchid glow from Welmas's own price lists; Cormorant Garamond
